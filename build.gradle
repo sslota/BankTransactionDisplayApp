@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.6'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+group = 'pl.edu.agh.to'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+javafx {
+	version = '17'
+	modules = ['javafx.base', 'javafx.controls', 'javafx.fxml', 'javafx.graphics', 'javafx.media', 'javafx.swing', 'javafx.web']
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	implementation group: 'io.reactivex.rxjava3', name: 'rxjava', version: '3.0.6'
+	implementation group: 'org.pdfsam.rxjava3', name: 'rxjavafx', version: '3.0.2'
+
+	implementation 'org.projectlombok:lombok:1.18.20'
+	implementation 'org.json:json:20220924'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+	implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+	compileOnly'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'com.h2database:h2'
+	implementation 'com.opencsv:opencsv:4.6'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

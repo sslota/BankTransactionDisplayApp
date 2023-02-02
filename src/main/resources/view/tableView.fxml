@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.util.Callback?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            minHeight="550.0" minWidth="1500"
+            fx:controller="pl.edu.agh.to.bankTransactionsUI.view.TransactionTableController">
+    <right>
+        <HBox>
+            <VBox>
+                <HBox.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </HBox.margin>
+                <Button text="Refresh!" minWidth="100" minHeight="50" onAction="#refresh" />
+                <Label text="Filter" />
+                <CheckBox fx:id="checkbox1" text="checkbox1" HBox.hgrow="ALWAYS"/>
+                <CheckBox fx:id="checkbox2" text="checkbox2" HBox.hgrow="ALWAYS"/>
+                <CheckBox fx:id="checkbox3" text="checkbox3" HBox.hgrow="ALWAYS"/>
+            </VBox>
+        </HBox>
+
+    </right>
+    <center>
+        <TableView fx:id="modelTableView" onMouseClicked="#handleMouseClick">
+            <columns>
+                <TableColumn prefWidth="25" text="ID" fx:id="idCol" />
+                <TableColumn prefWidth="225" text="Account Number" fx:id="accountNumberCol" />
+                <TableColumn prefWidth="150" text="Correspondent" fx:id="correspondentCol" />
+                <TableColumn prefWidth="100" text="Date" fx:id="dateCol" />
+                <TableColumn prefWidth="150" text="Transaction Type" fx:id="transactionTypeCol" />
+                <TableColumn prefWidth="75" text="Amount" fx:id="amountCol" />
+                <TableColumn prefWidth="500" text="Description" fx:id="descriptionCol" />
+                <TableColumn prefWidth="200" text="Tags" fx:id="tagsCol" />
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
